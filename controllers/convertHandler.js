@@ -1,3 +1,5 @@
+const { UNITS } = require('../constants')
+
 function ConvertHandler() {
   this.getNum = function (input) {
     let result = `${input}`.replace(/[^0-9\.\/]/g, '')
@@ -20,7 +22,9 @@ function ConvertHandler() {
   }
 
   this.getUnit = function (input) {
-    let result
+    let result = `${input}`.replace(/[0-9\.\/\-]/g, '')
+
+    if (!UNITS.includes(result)) return 'invalid unit'
 
     return result
   }

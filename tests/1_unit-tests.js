@@ -1,6 +1,11 @@
 const chai = require('chai')
 let assert = chai.assert
 const ConvertHandler = require('../controllers/convertHandler.js')
+const { UNITS } = require('../constants')
+
+const rand = (min = 0, max) => {
+  return Math.random() * (max - min + 1) + min
+}
 
 let convertHandler = new ConvertHandler()
 
@@ -53,8 +58,23 @@ suite('Unit Tests', function () {
     })
 
     suite('#getUnit', () => {
-      test('should correctly read each valid input unit.')
-      test('should correctly return an error for an invalid input unit.')
+      const { getUnit } = convertHandler
+
+      test('should correctly read each valid input unit.', () => {
+        UNITS.forEach(unit => {
+          const expected = unit
+          const actual = getUnit(`${rand(1, 10)}${unit}`)
+
+          assert.equal(actual, expected)
+        })
+      })
+
+      test('should correctly return an error for an invalid input unit.', () => {
+        const expected = 'invalid unit'
+        const actual = getUnit('1foo')
+
+        assert.equal(actual, expected)
+      })
     })
 
     suite('#getReturnUnit ', () => {
