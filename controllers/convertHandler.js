@@ -1,8 +1,22 @@
 function ConvertHandler() {
   this.getNum = function (input) {
-    let result
+    let result = `${input}`.replace(/[^0-9\.\/]/g, '')
 
-    return result
+    const isFractional = result.includes('/')
+
+    if (isFractional) {
+      const splitted = result.split('/').map(Number)
+      const isDoubleFraction = splitted.length > 2
+
+      if (!isDoubleFraction) {
+        const [a, b] = splitted
+        result = a / b
+      } else {
+        return (result = 'invalid number')
+      }
+    }
+
+    return Number(result || 1)
   }
 
   this.getUnit = function (input) {
