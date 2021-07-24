@@ -2,10 +2,7 @@
 <html>
   <head>
     <title>Metric/Imperial Converter</title>
-    <meta
-      name="description"
-      content="An example of the Free Code Camp Metric/Imperial Converter Project"
-    />
+    <meta name="description" content="An example of the Free Code Camp Metric/Imperial Converter Project" />
     <link
       id="favicon"
       rel="icon"
@@ -30,8 +27,8 @@
       <code>/api/convert?input=kg</code><br />
       <h3>Example return</h3>
       <code
-        >{ initNum: 3.1, initUnit: 'mi', returnNum: 4.98895, returnUnit: 'km',
-        string: '3.1 miles converts to 4.98895 kilometers' }</code
+        >{ initNum: 3.1, initUnit: 'mi', returnNum: 4.98895, returnUnit: 'km', string: '3.1 miles converts to 4.98895
+        kilometers' }</code
       >
     </section>
     <hr style="margin: 50px" />
@@ -39,13 +36,7 @@
       <div id="testui">
         <h3 style="text-align: left">Front-End</h3>
         <form id="convertForm" class="border">
-          <input
-            type="text"
-            id="convertField"
-            name="input"
-            placeholder="3.1mi"
-            style="width: 200px"
-          />
+          <input type="text" id="convertField" name="input" placeholder="3.1mi" style="width: 200px" />
           <input id="convert" type="submit" value="Convert!" />
         </form>
         <p id="result"></p>
@@ -60,19 +51,19 @@
     ></script>
     <script>
       $(function () {
-        $("#convertForm").submit(function (event) {
-          event.preventDefault();
+        $('#convertForm').submit(function (event) {
+          event.preventDefault()
           $.ajax({
-            url: "/api/convert",
-            type: "get",
-            data: $("#convertForm").serialize(),
+            url: '/api/convert',
+            type: 'get',
+            data: $('#convertForm').serialize(),
             success: function (data) {
-              $("#result").text(data.string || data);
-              $("#jsonResult").text(JSON.stringify(data));
+              $('#result').text(data.string || data)
+              $('#jsonResult').text(JSON.stringify(data))
             },
-          });
-        });
-      });
+          })
+        })
+      })
     </script>
   </body>
 </html>
