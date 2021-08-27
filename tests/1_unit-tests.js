@@ -91,7 +91,16 @@ suite('Unit Tests', function () {
     })
 
     suite('#spellOutUnit', () => {
-      test('should correctly return the spelled-out string unit for each valid input unit.')
+      const { spellOutUnit } = convertHandler
+
+      test('should correctly return the spelled-out string unit for each valid input unit.', () => {
+        assert.equal('miles', spellOutUnit(UNITS.MI))
+        assert.equal('kilometres', spellOutUnit(UNITS.KM))
+        assert.equal('kilograms', spellOutUnit(UNITS.KG))
+        assert.equal('pound', spellOutUnit(UNITS.LB))
+        assert.equal('liters', spellOutUnit(UNITS.L))
+        assert.equal('gallons', spellOutUnit(UNITS.GAL))
+      })
     })
 
     suite('#convert', () => {

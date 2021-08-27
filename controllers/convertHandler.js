@@ -39,9 +39,14 @@ function ConvertHandler() {
   }
 
   this.spellOutUnit = function (unit) {
-    let result
-
-    return result
+    return {
+      [UNITS.MI]: 'miles',
+      [UNITS.KM]: 'kilometres',
+      [UNITS.KG]: 'kilograms',
+      [UNITS.LB]: 'pound',
+      [UNITS.L]: 'liters',
+      [UNITS.GAL]: 'gallons',
+    }[unit]
   }
 
   this.convert = function (initNum, initUnit) {
