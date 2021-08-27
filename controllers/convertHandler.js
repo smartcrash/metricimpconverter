@@ -24,15 +24,18 @@ function ConvertHandler() {
   this.getUnit = function (input) {
     let result = `${input}`.replace(/[0-9\.\/\-]/g, '')
 
-    if (!UNITS.includes(result)) return 'invalid unit'
+    if (!Object.values(UNITS).includes(result)) return 'invalid unit'
 
     return result
   }
 
   this.getReturnUnit = function (initUnit) {
-    let result
-
-    return result
+    if (initUnit === UNITS.KM) return UNITS.MI
+    if (initUnit === UNITS.MI) return UNITS.KM
+    if (initUnit === UNITS.LB) return UNITS.KG
+    if (initUnit === UNITS.KG) return UNITS.LB
+    if (initUnit === UNITS.GAL) return UNITS.L
+    if (initUnit === UNITS.L) return UNITS.GAL
   }
 
   this.spellOutUnit = function (unit) {

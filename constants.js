@@ -1,1 +1,8 @@
-exports.UNITS = Object.freeze(['gal', 'kg', 'km', 'lbs'])
+exports.UNITS = Object.freeze({
+  GAL: 'gal',
+  L: 'l',
+  KG: 'kg',
+  KM: 'km',
+  MI: 'mi',
+  LB: 'lbs',
+})

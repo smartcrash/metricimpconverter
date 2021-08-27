@@ -61,7 +61,7 @@ suite('Unit Tests', function () {
       const { getUnit } = convertHandler
 
       test('should correctly read each valid input unit.', () => {
-        UNITS.forEach(unit => {
+        Object.values(UNITS).forEach(unit => {
           const expected = unit
           const actual = getUnit(`${rand(1, 10)}${unit}`)
 
@@ -78,7 +78,16 @@ suite('Unit Tests', function () {
     })
 
     suite('#getReturnUnit ', () => {
-      test('should return the correct return unit for each valid input unit.')
+      const { getReturnUnit } = convertHandler
+
+      test('should return the correct return unit for each valid input unit.', () => {
+        assert.equal(UNITS.KM, getReturnUnit(UNITS.MI))
+        assert.equal(UNITS.MI, getReturnUnit(UNITS.KM))
+        assert.equal(UNITS.LB, getReturnUnit(UNITS.KG))
+        assert.equal(UNITS.KG, getReturnUnit(UNITS.LB))
+        assert.equal(UNITS.GAL, getReturnUnit(UNITS.L))
+        assert.equal(UNITS.L, getReturnUnit(UNITS.GAL))
+      })
     })
 
     suite('#spellOutUnit', () => {
