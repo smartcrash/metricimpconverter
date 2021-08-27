@@ -104,12 +104,31 @@ suite('Unit Tests', function () {
     })
 
     suite('#convert', () => {
-      test('should correctly convert gal to L.')
-      test('should correctly convert L to gal.')
-      test('should correctly convert mi to km.')
-      test('should correctly convert km to mi.')
-      test('should correctly convert lbs to kg.')
-      test('should correctly convert kg to lbs.')
+      const { convert } = convertHandler
+
+      test('should correctly convert gal to L.', function () {
+        assert.equal(convert(1, UNITS.GAL).toFixed(5), '3.78541')
+      })
+
+      test('should correctly convert L to gal.', function () {
+        assert.equal(convert(1, UNITS.L).toFixed(6), '0.264172')
+      })
+
+      test('should correctly convert mi to km.', function () {
+        assert.equal(convert(1, UNITS.MI).toFixed(5), '1.60934')
+      })
+
+      test('should correctly convert km to mi.', function () {
+        assert.equal(convert(1, UNITS.KM).toFixed(4), '0.6214')
+      })
+
+      test('should correctly convert lbs to kg.', function () {
+        assert.equal(convert(1, UNITS.LB).toFixed(4), '0.4536')
+      })
+
+      test('should correctly convert kg to lbs.', function () {
+        assert.equal(convert(1, UNITS.KG).toFixed(3), '2.205')
+      })
     })
   })
 })

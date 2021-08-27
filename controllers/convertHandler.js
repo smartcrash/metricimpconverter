@@ -53,6 +53,16 @@ function ConvertHandler() {
     const galToL = 3.78541
     const lbsToKg = 0.453592
     const miToKm = 1.60934
+
+    if (initUnit === UNITS.GAL) return initNum * galToL
+    if (initUnit === UNITS.L) return initNum / galToL
+
+    if (initUnit === UNITS.LB) return initNum * lbsToKg
+    if (initUnit === UNITS.KG) return initNum / lbsToKg
+
+    if (initUnit === UNITS.MI) return initNum * miToKm
+    if (initUnit === UNITS.KM) return initNum / miToKm
+
     let result
 
     return result
