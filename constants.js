@@ -1,6 +1,6 @@
 exports.UNITS = Object.freeze({
   GAL: 'gal',
-  L: 'l',
+  L: 'L',
   KG: 'kg',
   KM: 'km',
   MI: 'mi',

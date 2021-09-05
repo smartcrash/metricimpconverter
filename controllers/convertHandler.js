@@ -43,7 +43,7 @@ function ConvertHandler() {
       [UNITS.MI]: 'miles',
       [UNITS.KM]: 'kilometres',
       [UNITS.KG]: 'kilograms',
-      [UNITS.LB]: 'pound',
+      [UNITS.LB]: 'pounds',
       [UNITS.L]: 'liters',
       [UNITS.GAL]: 'gallons',
     }[unit]
@@ -54,22 +54,22 @@ function ConvertHandler() {
     const lbsToKg = 0.453592
     const miToKm = 1.60934
 
-    if (initUnit === UNITS.GAL) return initNum * galToL
-    if (initUnit === UNITS.L) return initNum / galToL
-
-    if (initUnit === UNITS.LB) return initNum * lbsToKg
-    if (initUnit === UNITS.KG) return initNum / lbsToKg
-
-    if (initUnit === UNITS.MI) return initNum * miToKm
-    if (initUnit === UNITS.KM) return initNum / miToKm
-
     let result
 
-    return result
+    if (initUnit === UNITS.GAL) result = initNum * galToL
+    if (initUnit === UNITS.L) result = initNum / galToL
+
+    if (initUnit === UNITS.LB) result = initNum * lbsToKg
+    if (initUnit === UNITS.KG) result = initNum / lbsToKg
+
+    if (initUnit === UNITS.MI) result = initNum * miToKm
+    if (initUnit === UNITS.KM) result = initNum / miToKm
+
+    return Number.parseFloat(result.toFixed(5))
   }
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
-    return `${initNum} ${initUnit} converts to ${returnNum} ${returnUnit}`
+    return `${initNum} ${this.spellOutUnit(initUnit)} converts to ${returnNum} ${this.spellOutUnit(returnUnit)}`
   }
 }
 

@@ -97,7 +97,7 @@ suite('Unit Tests', function () {
         assert.equal('miles', spellOutUnit(UNITS.MI))
         assert.equal('kilometres', spellOutUnit(UNITS.KM))
         assert.equal('kilograms', spellOutUnit(UNITS.KG))
-        assert.equal('pound', spellOutUnit(UNITS.LB))
+        assert.equal('pounds', spellOutUnit(UNITS.LB))
         assert.equal('liters', spellOutUnit(UNITS.L))
         assert.equal('gallons', spellOutUnit(UNITS.GAL))
       })
@@ -111,7 +111,7 @@ suite('Unit Tests', function () {
       })
 
       test('should correctly convert L to gal.', function () {
-        assert.equal(convert(1, UNITS.L).toFixed(6), '0.264172')
+        assert.equal(convert(1, UNITS.L).toFixed(5), '0.26417')
       })
 
       test('should correctly convert mi to km.', function () {
