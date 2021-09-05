@@ -24,16 +24,14 @@ function ConvertHandler() {
   this.getUnit = function (input) {
     let result = `${input}`.replace(/[0-9\.\/\-]/g, '')
 
-    if (!Object.values(UNITS).includes(result)) return 'invalid unit'
-
-    return result
+    return UNITS[result.toUpperCase()] || 'invalid unit'
   }
 
   this.getReturnUnit = function (initUnit) {
     if (initUnit === UNITS.KM) return UNITS.MI
     if (initUnit === UNITS.MI) return UNITS.KM
-    if (initUnit === UNITS.LB) return UNITS.KG
-    if (initUnit === UNITS.KG) return UNITS.LB
+    if (initUnit === UNITS.LBS) return UNITS.KG
+    if (initUnit === UNITS.KG) return UNITS.LBS
     if (initUnit === UNITS.GAL) return UNITS.L
     if (initUnit === UNITS.L) return UNITS.GAL
   }
@@ -43,7 +41,7 @@ function ConvertHandler() {
       [UNITS.MI]: 'miles',
       [UNITS.KM]: 'kilometres',
       [UNITS.KG]: 'kilograms',
-      [UNITS.LB]: 'pounds',
+      [UNITS.LBS]: 'pounds',
       [UNITS.L]: 'liters',
       [UNITS.GAL]: 'gallons',
     }[unit]
@@ -59,7 +57,7 @@ function ConvertHandler() {
     if (initUnit === UNITS.GAL) result = initNum * galToL
     if (initUnit === UNITS.L) result = initNum / galToL
 
-    if (initUnit === UNITS.LB) result = initNum * lbsToKg
+    if (initUnit === UNITS.LBS) result = initNum * lbsToKg
     if (initUnit === UNITS.KG) result = initNum / lbsToKg
 
     if (initUnit === UNITS.MI) result = initNum * miToKm

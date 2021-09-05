@@ -77,4 +77,47 @@ suite('Functional Tests', function () {
         done()
       })
   })
+
+  test("All incoming units should be accepted in both upper and lower case, but should be returned in both the initUnit and returnUnit in lower case, except for liter, which should be represented as an uppercase 'L'", done => {
+    chai
+      .request(server)
+      .get('/api/convert?input=1gal')
+      .end((err, res) => {
+        assert.equal(res.body.initUnit, 'gal')
+        assert.equal(res.body.returnUnit, 'L')
+
+        chai
+          .request(server)
+          .get('/api/convert?input=10L')
+          .end((err, res) => {
+            assert.equal(res.body.initUnit, 'L')
+            assert.equal(res.body.returnUnit, 'gal')
+
+            chai
+              .request(server)
+              .get('/api/convert?input=1l')
+              .end((err, res) => {
+                assert.equal(res.body.initUnit, 'L')
+                assert.equal(res.body.returnUnit, 'gal')
+
+                chai
+                  .request(server)
+                  .get('/api/convert?input=1l')
+                  .end((err, res) => {
+                    assert.equal(res.body.initUnit, 'L')
+                    assert.equal(res.body.returnUnit, 'gal')
+
+                    chai
+                      .request(server)
+                      .get('/api/convert?input=10KM')
+                      .end((err, res) => {
+                        assert.equal(res.body.initUnit, 'km')
+                        assert.equal(res.body.returnUnit, 'mi')
+                        done()
+                      })
+                  })
+              })
+          })
+      })
+  })
 })

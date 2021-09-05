@@ -4,5 +4,5 @@ exports.UNITS = Object.freeze({
   KG: 'kg',
   KM: 'km',
   MI: 'mi',
-  LB: 'lbs',
+  LBS: 'lbs',
 })

@@ -83,8 +83,8 @@ suite('Unit Tests', function () {
       test('should return the correct return unit for each valid input unit.', () => {
         assert.equal(UNITS.KM, getReturnUnit(UNITS.MI))
         assert.equal(UNITS.MI, getReturnUnit(UNITS.KM))
-        assert.equal(UNITS.LB, getReturnUnit(UNITS.KG))
-        assert.equal(UNITS.KG, getReturnUnit(UNITS.LB))
+        assert.equal(UNITS.LBS, getReturnUnit(UNITS.KG))
+        assert.equal(UNITS.KG, getReturnUnit(UNITS.LBS))
         assert.equal(UNITS.GAL, getReturnUnit(UNITS.L))
         assert.equal(UNITS.L, getReturnUnit(UNITS.GAL))
       })
@@ -97,7 +97,7 @@ suite('Unit Tests', function () {
         assert.equal('miles', spellOutUnit(UNITS.MI))
         assert.equal('kilometres', spellOutUnit(UNITS.KM))
         assert.equal('kilograms', spellOutUnit(UNITS.KG))
-        assert.equal('pounds', spellOutUnit(UNITS.LB))
+        assert.equal('pounds', spellOutUnit(UNITS.LBS))
         assert.equal('liters', spellOutUnit(UNITS.L))
         assert.equal('gallons', spellOutUnit(UNITS.GAL))
       })
@@ -123,7 +123,7 @@ suite('Unit Tests', function () {
       })
 
       test('should correctly convert lbs to kg.', function () {
-        assert.equal(convert(1, UNITS.LB).toFixed(4), '0.4536')
+        assert.equal(convert(1, UNITS.LBS).toFixed(4), '0.4536')
       })
 
       test('should correctly convert kg to lbs.', function () {
