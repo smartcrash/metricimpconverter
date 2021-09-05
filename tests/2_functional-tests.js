@@ -63,7 +63,7 @@ suite('Functional Tests', function () {
   test('Convert with no number such as kg: GET request to /api/convert', done => {
     chai
       .request(server)
-      .get('/api/convert?input=hg')
+      .get('/api/convert?input=kg')
       .end((err, res) => {
         assert.equal(res.status, 200)
         assert.equal(res.type, 'application/json')
