@@ -120,4 +120,18 @@ suite('Functional Tests', function () {
           })
       })
   })
+
+  test("Your return will consist of the initNum, initUnit, returnNum, returnUnit, and string spelling out units in the format '{initNum} {initUnitString} converts to {returnNum} {returnUnitString}' with the result rounded to 5 decimals.", done => {
+    chai
+      .request(server)
+      .get('/api/convert?input=2mi')
+      .end((err, res) => {
+        assert.equal(res.body.initNum, 2)
+        assert.equal(res.body.initUnit, 'mi')
+        assert.approximately(res.body.returnNum, 3.21868, 0.001)
+        assert.equal(res.body.returnUnit, 'km', 'returnUnit did not match')
+        assert.equal(res.body.string, '2 miles converts to 3.21868 kilometers')
+        done()
+      })
+  })
 })

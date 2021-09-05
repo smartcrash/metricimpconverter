@@ -39,7 +39,7 @@ function ConvertHandler() {
   this.spellOutUnit = function (unit) {
     return {
       [UNITS.MI]: 'miles',
-      [UNITS.KM]: 'kilometres',
+      [UNITS.KM]: 'kilometers',
       [UNITS.KG]: 'kilograms',
       [UNITS.LBS]: 'pounds',
       [UNITS.L]: 'liters',

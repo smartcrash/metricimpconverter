@@ -95,7 +95,7 @@ suite('Unit Tests', function () {
 
       test('should correctly return the spelled-out string unit for each valid input unit.', () => {
         assert.equal('miles', spellOutUnit(UNITS.MI))
-        assert.equal('kilometres', spellOutUnit(UNITS.KM))
+        assert.equal('kilometers', spellOutUnit(UNITS.KM))
         assert.equal('kilograms', spellOutUnit(UNITS.KG))
         assert.equal('pounds', spellOutUnit(UNITS.LBS))
         assert.equal('liters', spellOutUnit(UNITS.L))
